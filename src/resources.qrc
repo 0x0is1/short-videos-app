@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/play.png</file>
+        <file>icons/next.png</file>
+        <file>icons/pause.png</file>
+        <file>icons/refresh.png</file>
+        <file>icons/previous.png</file>
+        <file>icons/author.png</file>
+        <file>icons/mute.png</file>
+        <file>icons/unmute.png</file>
+        <file>icons/share.svg</file>
+        <file>icons/comment.svg</file>
+        <file>icons/like.svg</file>
+    </qresource>
+</RCC>
