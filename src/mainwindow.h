@@ -15,7 +15,6 @@ class urls{
         QUrl josh_api_url = QUrl("https://share.myjosh.in/webview/apiwbody");
         QString josh_next_url = "https://feed-internal.coolfie.io/feed/latest?lang_code=en&page=1&rows=10";
 };
-
 namespace Ui {
 class MainWindow;
 }
@@ -72,7 +71,8 @@ private:
     QComboBox* dropdown;
     QMediaPlaylist* playlist;
     QNetworkAccessManager* mgr;
-    QLabel* song_container;
+    QLabel* song_container, * subtitles_container;
+    QVBoxLayout *layout;
 };
 
 #endif // MAINWINDOW_H

@@ -11,8 +11,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     dropdown = new QComboBox(this);
     player = new QMediaPlayer(this);
+    layout = new QVBoxLayout;
     vw = new QVideoWidget(this);
     song_container = new QLabel(this);
+    subtitles_container = new QLabel(this);
+    subtitles_container->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    subtitles_container->setWordWrap(true);
+    layout->addWidget(vw);
+    layout->addWidget(subtitles_container);
     QStringList drop_items = {
         "MOJ App",
         "Josh App",
@@ -20,7 +26,9 @@ MainWindow::MainWindow(QWidget *parent) :
     };
     dropdown->addItems(drop_items);
     player->setVideoOutput(vw);
-    this->setCentralWidget(vw);
+    QWidget *cw = new QWidget(this);
+    cw->setLayout(layout);
+    this->setCentralWidget(cw);
     ui->statusBar->addWidget(dropdown);
     ui->statusBar->addWidget(song_container);
     ui->actionPlay->setDisabled(true);
@@ -222,6 +230,7 @@ void MainWindow::media_changed(QMediaPlayer::MediaStatus)
     ui->actionShare_2->setText(KiloFormat(container[i+5].toInt()));
     QUrl str = container[i+6];
     str.setQuery(str.query(QUrl::FullyDecoded), QUrl::DecodedMode);
+    subtitles_container->setText(str.toString());
     this->setWindowTitle(str.toString());
 }
 
